@@ -1,0 +1,24 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: eza
+Upstream-Contact: Christina Sørensen <christina@cafkafk.com>
+Source: https://github.com/eza-community/eza
+
+Files: *
+Copyright: FIXME (overlay) UNKNOWN-YEARS Christina Sørensen <christina@cafkafk.com>
+License: EUPL-1.2
+Comment:
+ FIXME (overlay): Since upstream copyright years are not available in
+ Cargo.toml, they were extracted from the upstream Git repository. This may not
+ be correct information so you should review and fix this before uploading to
+ the archive.
+
+Files: debian/*
+Copyright:
+ 2018-2026 Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+ 2018-2026 Ximin Luo <infinity0@debian.org>
+ 2018-2026 Sylvestre Ledru <sylvestre@debian.org>
+ 2018-2026 kpcyrd <git@rxv.cc>
+License: EUPL-1.2
+
+License: EUPL-1.2
+ FIXME (overlay): Unrecognized crate license, please find the full license text in the rest of the crate source code and copy-paste it here

@@ -1,0 +1,51 @@
+Test-Command: /usr/share/cargo/bin/cargo-auto-test eza 0.23.5 --all-targets --all-features
+Features: test-name=rust-eza:@
+Depends: dh-cargo (>= 33~), rustc (>= 1.90), librust-criterion-0.5+default-dev, librust-criterion-0.5+html-reports-dev, librust-trycmd+default-dev (<< 2), librust-trycmd+default-dev (>= 0.15), @
+Restrictions: allow-stderr, flaky
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test eza 0.23.5 --all-targets
+Features: test-name=librust-eza-dev:default
+Depends: dh-cargo (>= 33~), rustc (>= 1.90), librust-criterion-0.5+default-dev, librust-criterion-0.5+html-reports-dev, librust-trycmd+default-dev (<< 2), librust-trycmd+default-dev (>= 0.15), @
+Restrictions: allow-stderr, flaky
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test eza 0.23.5 --all-targets --no-default-features --features git
+Features: test-name=librust-eza-dev:git
+Depends: dh-cargo (>= 33~), rustc (>= 1.90), librust-criterion-0.5+default-dev, librust-criterion-0.5+html-reports-dev, librust-trycmd+default-dev (<< 2), librust-trycmd+default-dev (>= 0.15), @
+Restrictions: allow-stderr, flaky
+Architecture: !riscv64
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test eza 0.23.5 --all-targets --no-default-features --features git2
+Features: test-name=librust-eza-dev:git2
+Depends: dh-cargo (>= 33~), rustc (>= 1.90), librust-criterion-0.5+default-dev, librust-criterion-0.5+html-reports-dev, librust-trycmd+default-dev (<< 2), librust-trycmd+default-dev (>= 0.15), @
+Restrictions: allow-stderr, flaky
+Architecture: !riscv64
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test eza 0.23.5 --all-targets --no-default-features --features nix
+Features: test-name=librust-eza-dev:nix
+Depends: dh-cargo (>= 33~), rustc (>= 1.90), librust-criterion-0.5+default-dev, librust-criterion-0.5+html-reports-dev, librust-trycmd+default-dev (<< 2), librust-trycmd+default-dev (>= 0.15), @
+Restrictions: allow-stderr, flaky
+Architecture: !riscv64
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test eza 0.23.5 --all-targets --no-default-features --features nix-generated
+Features: test-name=librust-eza-dev:nix-generated
+Depends: dh-cargo (>= 33~), rustc (>= 1.90), librust-criterion-0.5+default-dev, librust-criterion-0.5+html-reports-dev, librust-trycmd+default-dev (<< 2), librust-trycmd+default-dev (>= 0.15), @
+Restrictions: allow-stderr, flaky
+Architecture: !riscv64
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test eza 0.23.5 --all-targets --no-default-features --features nix-local
+Features: test-name=librust-eza-dev:nix-local
+Depends: dh-cargo (>= 33~), rustc (>= 1.90), librust-criterion-0.5+default-dev, librust-criterion-0.5+html-reports-dev, librust-trycmd+default-dev (<< 2), librust-trycmd+default-dev (>= 0.15), @
+Restrictions: allow-stderr, flaky
+Architecture: !riscv64
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test eza 0.23.5 --all-targets --no-default-features --features powertest
+Features: test-name=librust-eza-dev:powertest
+Depends: dh-cargo (>= 33~), rustc (>= 1.90), librust-criterion-0.5+default-dev, librust-criterion-0.5+html-reports-dev, librust-trycmd+default-dev (<< 2), librust-trycmd+default-dev (>= 0.15), @
+Restrictions: allow-stderr, flaky
+Architecture: !riscv64
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test eza 0.23.5 --all-targets --no-default-features
+Features: test-name=librust-eza-dev:
+Depends: dh-cargo (>= 33~), rustc (>= 1.90), librust-criterion-0.5+default-dev, librust-criterion-0.5+html-reports-dev, librust-trycmd+default-dev (<< 2), librust-trycmd+default-dev (>= 0.15), @
+Restrictions: allow-stderr, flaky
+Architecture: !riscv64

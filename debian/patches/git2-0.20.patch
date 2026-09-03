@@ -1,0 +1,34 @@
+Index: eza/Cargo.toml
+===================================================================
+--- eza.orig/Cargo.toml
++++ eza/Cargo.toml
+@@ -140,7 +140,7 @@ features = [
+ version = ">= 5.0.1, <7"
+ 
+ [dependencies.git2]
+-version = "0.21"
++version = ">= 0.20, < 0.22"
+ optional = true
+ default-features = false
+ 
+Index: eza/src/fs/feature/git.rs
+===================================================================
+--- eza.orig/src/fs/feature/git.rs
++++ eza/src/fs/feature/git.rs
+@@ -18,6 +18,16 @@ use log::{debug, error, info, warn};
+ 
+ use crate::fs::fields as f;
+ 
++// allow .ok() to be called on Option to retain compatibility with older git2.
++trait MyOk {
++    type Output;
++    fn ok(self) -> Self::Output;
++}
++impl<T> MyOk for Option<T> {
++    type Output = Option<T>;
++    fn ok(self) -> Self::Output { self }
++}
++
+ /// A **Git cache** is assembled based on the user’s input arguments.
+ ///
+ /// This uses vectors to avoid the overhead of hashing: it’s not worth it when the

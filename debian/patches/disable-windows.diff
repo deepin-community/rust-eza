@@ -1,0 +1,23 @@
+Index: eza/Cargo.toml
+===================================================================
+--- eza.orig/Cargo.toml
++++ eza/Cargo.toml
+@@ -226,12 +226,12 @@ default-features = false
+ [target.'cfg(target_os = "linux")'.dependencies.proc-mounts]
+ version = "0.3"
+ 
+-[target.'cfg(target_os = "windows")'.dependencies.windows-sys]
+-version = "0.61.2"
+-features = [
+-    "Win32_System_Console",
+-    "Win32_Foundation",
+-]
++# [target.'cfg(target_os = "windows")'.dependencies.windows-sys]
++# version = "0.61.2"
++# features = [
++#     "Win32_System_Console",
++#     "Win32_Foundation",
++# ]
+ 
+ [target."cfg(unix)".dependencies.uzers]
+ version = "0.12.1"

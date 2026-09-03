@@ -1,0 +1,4 @@
+# eza depends on serde_norway, which uses the unsafe-libyaml crate: a pure-Rust
+# transliteration of libyaml, not the C library. Nothing is statically linked
+# from libyaml itself; lintian only matches the crate's embedded path strings.
+eza: embedded-library libyaml [usr/bin/eza]

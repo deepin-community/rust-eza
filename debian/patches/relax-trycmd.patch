@@ -1,0 +1,13 @@
+Index: eza/Cargo.toml
+===================================================================
+--- eza.orig/Cargo.toml
++++ eza/Cargo.toml
+@@ -216,7 +216,7 @@ version = "0.5"
+ features = ["html_reports"]
+ 
+ [dev-dependencies.trycmd]
+-version = "1.0"
++version = ">= 0.15, < 2"
+ 
+ [build-dependencies.chrono]
+ version = "0.4.40"
