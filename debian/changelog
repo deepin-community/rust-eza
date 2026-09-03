@@ -1,3 +1,15 @@
+rust-eza (0.23.5-5deepin1) unstable; urgency=medium
+
+  * Switch to vendored crate sources for offline builds. Use cargo
+    vendor (Rust 1.95) and commit vendor/ so the package builds without
+    librust-*-dev and dh-cargo. Build with the distro cargo-1.95/rustc-
+    1.95 toolchain and link libgit2 statically from the vendored libgit2-
+    sys sources (system libgit2 1.7.2 is too old for git2 0.21). Drop
+    the debcargo patches that relaxed dependency versions; Cargo.lock is
+    generated for the pristine eza 0.23.5 manifest.
+
+ -- lichenggang <lichenggang@uniontech.com>  Thu, 03 Sep 2026 21:28:20 +0800
+
 rust-eza (0.23.5-5) unstable; urgency=medium
 
   * Team upload.

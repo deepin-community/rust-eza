@@ -1,156 +1,34 @@
 Source: rust-eza
 Section: rust
-Build-Depends: debhelper-compat (= 13),
- dh-sequence-cargo,
- debhelper (>= 13),
- pandoc,
- bash-completion,
- fish-common,
- pkgconf
-Build-Depends-Arch: cargo:native,
- rustc:native (>= 1.90),
- libstd-rust-dev,
- librust-ansi-width-0.1+default-dev,
- librust-backtrace-0.3+default-dev,
- librust-chrono-0.4+clock-dev (>= 0.4.40),
- librust-clap-4+cargo-dev (>= 4.5.38),
- librust-clap-4+default-dev (>= 4.5.38),
- librust-clap-4+derive-dev (>= 4.5.38),
- librust-dirs+default-dev (<< 7),
- librust-dirs+default-dev (>= 5.0.1),
- librust-git2-dev (<< 0.22),
- librust-git2-dev (>= 0.20),
- librust-glob-0.3+default-dev,
- librust-libc-0.2+default-dev,
- librust-locale-0.2+default-dev,
- librust-log-0.4+default-dev,
- librust-natord-plus-plus-2+default-dev,
- librust-nu-ansi-term-0.50+default-dev (>= 0.50.1),
- librust-nu-ansi-term-0.50+derive-serde-style-dev (>= 0.50.1),
- librust-nu-ansi-term-0.50+serde-dev (>= 0.50.1),
- librust-palette-0.7+std-dev,
- librust-path-clean-1+default-dev (>= 1.0.1),
- librust-percent-encoding-2+default-dev (>= 2.3.1),
- librust-phf-0.11+default-dev,
- librust-phf-0.11+macros-dev,
- librust-plist-1-dev (>= 1.7.0),
- librust-proc-mounts-0.3+default-dev,
- librust-rayon-1+default-dev (>= 1.10.0),
- librust-serde-1+default-dev,
- librust-serde-1+derive-dev,
- librust-serde-norway-0.9+default-dev,
- librust-terminal-size-0.4+default-dev,
- librust-timeago-0.6-dev,
- librust-unicode-width-0+default-dev,
- librust-unit-prefix-0.5+default-dev (>= 0.5.2),
- librust-uutils-term-grid-0.8+default-dev,
- librust-uzers-0.12+default-dev (>= 0.12.1)
+Priority: optional
 Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
 Uploaders:
  Ximin Luo <infinity0@debian.org>,
  Sylvestre Ledru <sylvestre@debian.org>,
  kpcyrd <git@rxv.cc>
+Build-Depends:
+ debhelper (>= 13),
+ dh-sequence-bash-completion,
+ pandoc,
+ pkgconf,
+ git,
+ gcc,
+ libssl-dev,
+ zlib1g-dev,
+ rustc-1.95,
+ cargo-1.95
 Standards-Version: 4.7.4
+Rules-Requires-Root: no
 Vcs-Git: https://salsa.debian.org/rust-team/debcargo-conf.git [src/eza]
 Vcs-Browser: https://salsa.debian.org/rust-team/debcargo-conf/tree/master/src/eza
 Homepage: https://github.com/eza-community/eza
-X-Cargo-Crate: eza
-X-Cargo-Crate-Version: 0.23.5
-
-Package: librust-eza-dev
-Architecture: any
-Multi-Arch: same
-Depends:
- ${misc:Depends},
- librust-ansi-width-0.1+default-dev,
- librust-backtrace-0.3+default-dev,
- librust-chrono-0.4+clock-dev (>= 0.4.40),
- librust-clap-4+cargo-dev (>= 4.5.38),
- librust-clap-4+default-dev (>= 4.5.38),
- librust-clap-4+derive-dev (>= 4.5.38),
- librust-dirs+default-dev (<< 7),
- librust-dirs+default-dev (>= 5.0.1),
- librust-git2-dev (<< 0.22),
- librust-git2-dev (>= 0.20),
- librust-glob-0.3+default-dev,
- librust-libc-0.2+default-dev,
- librust-locale-0.2+default-dev,
- librust-log-0.4+default-dev,
- librust-natord-plus-plus-2+default-dev,
- librust-nu-ansi-term-0.50+default-dev (>= 0.50.1),
- librust-nu-ansi-term-0.50+derive-serde-style-dev (>= 0.50.1),
- librust-nu-ansi-term-0.50+serde-dev (>= 0.50.1),
- librust-palette-0.7+std-dev,
- librust-path-clean-1+default-dev (>= 1.0.1),
- librust-percent-encoding-2+default-dev (>= 2.3.1),
- librust-phf-0.11+default-dev,
- librust-phf-0.11+macros-dev,
- librust-plist-1-dev (>= 1.7.0),
- librust-proc-mounts-0.3+default-dev,
- librust-rayon-1+default-dev (>= 1.10.0),
- librust-serde-1+default-dev,
- librust-serde-1+derive-dev,
- librust-serde-norway-0.9+default-dev,
- librust-terminal-size-0.4+default-dev,
- librust-timeago-0.6-dev,
- librust-unicode-width-0+default-dev,
- librust-unit-prefix-0.5+default-dev (>= 0.5.2),
- librust-uutils-term-grid-0.8+default-dev,
- librust-uzers-0.12+default-dev (>= 0.12.1)
-Provides:
- librust-eza+default-dev (= ${binary:Version}),
- librust-eza+git-dev (= ${binary:Version}),
- librust-eza+git2-dev (= ${binary:Version}),
- librust-eza+nix-dev (= ${binary:Version}),
- librust-eza+nix-generated-dev (= ${binary:Version}),
- librust-eza+nix-local-dev (= ${binary:Version}),
- librust-eza+powertest-dev (= ${binary:Version}),
- librust-eza-0-dev (= ${binary:Version}),
- librust-eza-0+default-dev (= ${binary:Version}),
- librust-eza-0+git-dev (= ${binary:Version}),
- librust-eza-0+git2-dev (= ${binary:Version}),
- librust-eza-0+nix-dev (= ${binary:Version}),
- librust-eza-0+nix-generated-dev (= ${binary:Version}),
- librust-eza-0+nix-local-dev (= ${binary:Version}),
- librust-eza-0+powertest-dev (= ${binary:Version}),
- librust-eza-0.23-dev (= ${binary:Version}),
- librust-eza-0.23+default-dev (= ${binary:Version}),
- librust-eza-0.23+git-dev (= ${binary:Version}),
- librust-eza-0.23+git2-dev (= ${binary:Version}),
- librust-eza-0.23+nix-dev (= ${binary:Version}),
- librust-eza-0.23+nix-generated-dev (= ${binary:Version}),
- librust-eza-0.23+nix-local-dev (= ${binary:Version}),
- librust-eza-0.23+powertest-dev (= ${binary:Version}),
- librust-eza-0.23.5-dev (= ${binary:Version}),
- librust-eza-0.23.5+default-dev (= ${binary:Version}),
- librust-eza-0.23.5+git-dev (= ${binary:Version}),
- librust-eza-0.23.5+git2-dev (= ${binary:Version}),
- librust-eza-0.23.5+nix-dev (= ${binary:Version}),
- librust-eza-0.23.5+nix-generated-dev (= ${binary:Version}),
- librust-eza-0.23.5+nix-local-dev (= ${binary:Version}),
- librust-eza-0.23.5+powertest-dev (= ${binary:Version})
-Breaks:
- rustc (<< 1.90~)
-Description: Modern replacement for ls - Rust source code
- Source code for Debianized Rust crate "eza"
 
 Package: eza
 Architecture: any
 Section: utils
 Depends:
  ${misc:Depends},
- ${shlibs:Depends},
- ${cargo:Depends}
-Recommends:
- ${cargo:Recommends}
-Suggests:
- ${cargo:Suggests}
-Provides:
- ${cargo:Provides}
-Built-Using: ${cargo:Built-Using}
-Static-Built-Using: ${cargo:Static-Built-Using}
-Replaces: exa (<< 0.14.1-1)
-Breaks: exa (<< 0.14.1-1)
+ ${shlibs:Depends}
 Description: Modern replacement for ls
  eza is an improved file lister with more features and better defaults.
  It uses colours to distinguish file types and metadata. It knows about

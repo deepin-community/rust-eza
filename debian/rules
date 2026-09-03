@@ -1,20 +1,34 @@
 #!/usr/bin/make -f
 
-include /usr/share/dpkg/pkg-info.mk
+# Prefer the distro rustc-1.95/cargo-1.95 toolchain (Build-Depends) when
+# installed under /usr/lib/rust-1.95/bin, otherwise fall back to the
+# toolchain already on PATH (e.g. rustup for local builds).
+export PATH := /usr/lib/rust-1.95/bin:$(HOME)/.cargo/bin:$(PATH)
+export CARGO_HOME := $(CURDIR)/debian/cargo_home
+export CARGO_NET_OFFLINE := true
+export DEB_CARGO_CRATE := eza_0.23.5
 
 %:
-	dh $@ --buildsystem cargo --with bash-completion
+	dh $@ --buildsystem=none --with bash-completion
 
-override_dh_install:
-	dh_install
+override_dh_auto_build:
+	cargo build --release --locked --bin eza
+
+override_dh_auto_install:
+	# The binary and completions are installed by dh_install directly
+	# from the source tree (see debian/eza.install).
+
+override_dh_auto_clean:
+	cargo clean
+
+override_dh_auto_test:
+	# Tests are skipped: they need dev-dependencies (trycmd/criterion)
+	# which are not part of the vendored production build.
 
 override_dh_installman:
 	pandoc --standalone -f markdown -t man man/eza.1.md        > debian/eza.1
 	pandoc --standalone -f markdown -t man man/eza_colors.5.md > debian/eza_colors.5
-	dh_installman -O--buildsystem=cargo
-
-override_dh_auto_test:
-	dh_auto_test || true
+	dh_installman -O--buildsystem=none
 
 override_dh_dwz:
 	# Don't do anything. fails because of the
